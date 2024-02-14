@@ -15,6 +15,9 @@ public class GradeUpdateDto {
     private Long subjectId;
     private Long teacherId;
 
+   // @Autowired
+   // private Grade gradeObj;
+
     @Autowired
     private StudentRepository studentRepository;
 
@@ -26,11 +29,13 @@ public class GradeUpdateDto {
     }
 
     public Grade toEntity(Grade grade) {
-        grade.setGrade(this.grade);
-        grade.getStudent().setId(this.studentId);
-        grade.getSubject().setId(this.subjectId);
-        grade.getTeacher().setId(this.teacherId);
-        return grade;
+        Grade gradeObj = new Grade();
+        gradeObj.setId(grade.getId());
+        gradeObj.setGrade(this.grade);
+        gradeObj.setStudent(new Student(this.studentId));
+        gradeObj.setSubject(new Subject(this.subjectId));
+        gradeObj.setTeacher(new Teacher(this.teacherId));
+        return gradeObj;
     }
 
 }

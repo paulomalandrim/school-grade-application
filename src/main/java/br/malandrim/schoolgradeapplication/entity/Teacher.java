@@ -25,6 +25,15 @@ public class Teacher {
         this.id = id;
     }
 
+    public Teacher(String nome) {
+        this.nome = nome;
+    }
+
+    public Teacher(String nome, Long id) {
+        this.nome = nome;
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }

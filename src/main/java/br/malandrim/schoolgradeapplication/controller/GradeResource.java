@@ -51,7 +51,10 @@ public class GradeResource {
                 .body(updatedGrade);
     }
 
-    @DeleteMapping void delete(Long id){
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id){
         gradeService.deleteById(id);
+
     }
 }

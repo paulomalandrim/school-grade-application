@@ -4,12 +4,14 @@ import br.malandrim.schoolgradeapplication.entity.Grade;
 
 public class GradeView {
 
+    private Long id;
     private double grade;
     private Long studentId;
     private Long subjectId;
     private Long teacherId;
 
     public GradeView(Grade grade){
+        this.id = grade.getId();
         this.grade = grade.getGrade();
         this.studentId = grade.getStudent().getId();
         this.subjectId = grade.getSubject().getId();
