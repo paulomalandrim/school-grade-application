@@ -12,14 +12,26 @@ import java.util.List;
 @Service
 public class StudentService {
 
-    @Autowired private StudentRepository studentRepository;
+    @Autowired
+    private StudentRepository studentRepository;
 
-    public Student save(Student student) {
+    public Student create(Student student) {
         return studentRepository.save(student);
     }
 
     public List<Student> findAll() {
         return studentRepository.findAll();
+    }
+
+    public Student update(Student student){
+        return studentRepository.save(student);
+    }
+
+    public void delete(Long id){
+        if (!existsById(id)){
+            throw new BusinessException("Id %d not found!".formatted(id));
+        }
+        studentRepository.deleteById(id);
     }
 
     public boolean existsById(Long studentId) {
@@ -31,9 +43,7 @@ public class StudentService {
                 new BusinessException("Id %d not found!".formatted(studentId))
         );
     }
-
     public List<Student> findByName(String studentName) {
         return studentRepository.findByName(studentName);
     }
-
 }

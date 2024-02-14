@@ -1,0 +1,10 @@
+INSERT INTO subjects (name) VALUES ('Português');
+INSERT INTO subjects (name) VALUES ('Inglês');
+INSERT INTO subjects (name) VALUES ('Geografia');
+INSERT INTO subjects (name) VALUES ('Matemática');
+INSERT INTO subjects (name) VALUES ('História');
+INSERT INTO subjects (name) VALUES ('Biologia');
+INSERT INTO subjects (name) VALUES ('Sociologia');
+INSERT INTO subjects (name) VALUES ('Química');
+INSERT INTO subjects (name) VALUES ('Física');
+INSERT INTO subjects (name) VALUES ('Filosofia');

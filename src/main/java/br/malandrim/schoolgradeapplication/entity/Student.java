@@ -8,7 +8,9 @@ import java.util.List;
 import static com.google.gson.internal.$Gson$Types.arrayOf;
 
 @Entity
-public class Student {
+@Table(name = "students")
+public class
+Student {
     @Column private String name;
     @Column private LocalDateTime nascimento;
 
@@ -19,6 +21,14 @@ public class Student {
     private List<Grade> grades;
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Student() {
+    }
+
+    public Student(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -47,5 +57,7 @@ public class Student {
         return id;
     }
 
-
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

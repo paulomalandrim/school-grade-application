@@ -2,9 +2,12 @@ package br.malandrim.schoolgradeapplication.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Optional;
+
 @Entity
+@Table(name = "grades")
 public class Grade {
-    @Column private String name;
+    private double grade;
     @ManyToOne
     private Student student;
     @ManyToOne
@@ -13,12 +16,22 @@ public class Grade {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public String getName() {
-        return name;
+    public Grade(double grade, Student student, Subject subject, Teacher teacher) {
+        this.grade = grade;
+        this.student = student;
+        this.subject = subject;
+        this.teacher = teacher;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Grade(){
+    }
+
+    public double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(double grade) {
+        this.grade = grade;
     }
 
     public Student getStudent() {

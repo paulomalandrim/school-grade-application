@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "subjects")
 public class Subject {
     @Column private String name;
 
@@ -16,6 +17,14 @@ public class Subject {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Subject(Long id) {
+        this.id = id;
+    }
+
+    public Subject(){
+
+    }
 
     public String getName() {
         return name;
@@ -37,4 +46,7 @@ public class Subject {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

@@ -7,9 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
-
-
     @Query(value = "SELECT * FROM student WHERE name = ?1", nativeQuery = true)
-    public List<Student> findByName(String name);
-
+    List<Student> findByName(String name);
 }

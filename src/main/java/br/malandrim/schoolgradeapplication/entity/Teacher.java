@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "teachers")
 public class Teacher {
     @Column private String nome;
 
@@ -16,6 +17,13 @@ public class Teacher {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Teacher() {
+    }
+
+    public Teacher(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -35,5 +43,9 @@ public class Teacher {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
