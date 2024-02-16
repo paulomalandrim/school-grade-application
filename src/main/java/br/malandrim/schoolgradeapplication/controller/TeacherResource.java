@@ -7,7 +7,6 @@ import br.malandrim.schoolgradeapplication.entity.Teacher;
 import br.malandrim.schoolgradeapplication.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,7 +58,5 @@ public class TeacherResource {
     public void delete(@PathVariable Long id){
         teacherService.delete(id);
     }
-
-
 
 }

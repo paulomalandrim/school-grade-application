@@ -3,23 +3,13 @@ package br.malandrim.schoolgradeapplication.dto;
 import br.malandrim.schoolgradeapplication.entity.Teacher;
 
 public class TeacherUpdateDto {
-
-    private Long id;
-
     private String nome;
 
+    public TeacherUpdateDto(){
 
-    public TeacherUpdateDto(Long id, String nome) {
-        this.id = id;
+    }
+    public TeacherUpdateDto(String nome) {
         this.nome = nome;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -31,6 +21,7 @@ public class TeacherUpdateDto {
     }
 
     public Teacher toEntity(Teacher teacher){
-        return new Teacher(teacher.getNome(),teacher.getId());
+
+        return new Teacher(this.nome, teacher.getId());
     }
 }

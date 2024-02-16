@@ -2,7 +2,8 @@ package br.malandrim.schoolgradeapplication.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalDate;
 import java.util.List;
 
 import static com.google.gson.internal.$Gson$Types.arrayOf;
@@ -12,7 +13,7 @@ import static com.google.gson.internal.$Gson$Types.arrayOf;
 public class
 Student {
     @Column private String name;
-    @Column private LocalDateTime nascimento;
+    @Column private LocalDate nascimento;
 
     @Column(nullable = false)
     @OneToMany(fetch = FetchType.LAZY,
@@ -29,6 +30,17 @@ Student {
         this.id = id;
     }
 
+    public Student(String name, LocalDate nascimento){
+        this.name = name;
+        this.nascimento = nascimento;
+    }
+
+    public Student(String name, LocalDate nascimento, Long id) {
+        this.name = name;
+        this.nascimento = nascimento;
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -37,11 +49,11 @@ Student {
         this.name = name;
     }
 
-    public LocalDateTime getNascimento() {
+    public LocalDate getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(LocalDateTime nascimento) {
+    public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
     }
 

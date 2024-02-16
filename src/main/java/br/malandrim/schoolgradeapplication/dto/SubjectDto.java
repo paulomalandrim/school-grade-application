@@ -1,13 +1,14 @@
 package br.malandrim.schoolgradeapplication.dto;
 
-import br.malandrim.schoolgradeapplication.entity.Teacher;
+import br.malandrim.schoolgradeapplication.entity.Subject;
 
-public class TeacherDto {
+public class SubjectDto {
+
     private String nome;
 
-    public TeacherDto() {}
+    public SubjectDto() {}
 
-    public TeacherDto(String nome) {
+    public SubjectDto(String nome) {
         this.nome = nome;
     }
 
@@ -19,7 +20,7 @@ public class TeacherDto {
         this.nome = nome;
     }
 
-    public Teacher toEntity(){
-        return new Teacher(this.nome);
+    public Subject toEntity(){ return new Subject(this.nome);
     }
+
 }

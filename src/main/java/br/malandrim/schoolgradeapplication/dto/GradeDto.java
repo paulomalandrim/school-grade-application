@@ -4,10 +4,6 @@ import br.malandrim.schoolgradeapplication.entity.Grade;
 import br.malandrim.schoolgradeapplication.entity.Student;
 import br.malandrim.schoolgradeapplication.entity.Subject;
 import br.malandrim.schoolgradeapplication.entity.Teacher;
-import br.malandrim.schoolgradeapplication.service.StudentService;
-import br.malandrim.schoolgradeapplication.service.SubjectService;
-import br.malandrim.schoolgradeapplication.service.TeacherService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class GradeDto {
     private double grade;
