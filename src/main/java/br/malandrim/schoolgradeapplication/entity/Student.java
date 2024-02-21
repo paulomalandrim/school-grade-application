@@ -1,17 +1,15 @@
 package br.malandrim.schoolgradeapplication.entity;
 
+
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+
 import java.time.LocalDate;
 import java.util.List;
 
-import static com.google.gson.internal.$Gson$Types.arrayOf;
-
 @Entity
 @Table(name = "students")
-public class
-Student {
+public class Student {
     @Column private String name;
     @Column private LocalDate nascimento;
 

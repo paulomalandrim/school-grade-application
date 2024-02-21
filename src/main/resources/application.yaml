@@ -1,4 +1,3 @@
-
 spring:
   datasource:
     url: jdbc:h2:mem:school_grade_application_db
