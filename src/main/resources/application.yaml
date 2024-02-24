@@ -16,4 +16,6 @@ spring:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
-
+api:
+  secret:
+    token: ${JWT_SECRET:my-secret-key}

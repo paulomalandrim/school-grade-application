@@ -1,2 +1,2 @@
-INSERT INTO tab_user (name, username, password) VALUES ('admin', 'admin', 'admin');
+INSERT INTO tab_user (name, username, password) VALUES ('admin', 'admin', '$2a$10$2furILpb3HahbwpmjUeoHuvth/FJXctTYBK22zmvO8I6e8AsFVLya');
 INSERT INTO tab_user_roles (user_id, role_id) VALUES (1, 'ADMIN');
