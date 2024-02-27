@@ -1,7 +1,9 @@
 package br.malandrim.schoolgradeapplication.controller;
 
+import br.malandrim.schoolgradeapplication.config.TokenService;
 import br.malandrim.schoolgradeapplication.dto.AuthenticationDTO;
 import br.malandrim.schoolgradeapplication.dto.RegisterDTO;
+import br.malandrim.schoolgradeapplication.dto.TokenResponseDTO;
 import br.malandrim.schoolgradeapplication.entity.User;
 import br.malandrim.schoolgradeapplication.repository.UserRepository;
 import jakarta.validation.Valid;
@@ -27,12 +29,15 @@ public class AuthenticationResource {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){
         Authentication usernamePassword = new UsernamePasswordAuthenticationToken(data.username(), data.password());
         Authentication auth = authenticationManager.authenticate(usernamePassword);
-
-        return ResponseEntity.ok().build();
+        String token = tokenService.generateToken((User) auth.getPrincipal());
+        return ResponseEntity.ok(new TokenResponseDTO(token));
     }
 
     @PostMapping("/register")
