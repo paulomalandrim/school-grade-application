@@ -2,12 +2,13 @@ package br.malandrim.schoolgradeapplication.dto;
 
 import br.malandrim.schoolgradeapplication.entity.Grade;
 import br.malandrim.schoolgradeapplication.entity.Student;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentView {
+public class StudentView extends RepresentationModel<StudentView> {
     private Long id;
     private String name;
     private LocalDate nascimento;

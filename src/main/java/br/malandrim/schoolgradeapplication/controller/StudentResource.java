@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 @RestController
 @RequestMapping("/api/v1/students")
 public class StudentResource {
@@ -29,9 +32,12 @@ public class StudentResource {
 
     @GetMapping
     public ResponseEntity<List<StudentView>> list(){
-        List<Student> studentList = studentService.findAll();
-        List<StudentView> studentViewList = studentList.stream()
-                .map(StudentView::new)
+        List<StudentView> studentViewList = studentService.findAll()
+                .stream()
+                .map(student -> new StudentView(student)
+                                        .add(linkTo(methodOn(StudentResource.class)
+                                                .find(student.getId())).withSelfRel())
+                )
                 .toList();
         return ResponseEntity
                 .status(HttpStatus.OK.value())

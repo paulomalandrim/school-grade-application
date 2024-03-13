@@ -42,7 +42,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> {
                     //auth.requestMatchers(devList).hasAnyRole("ADMIN","DEV"); // PROD
                     auth.requestMatchers(devList).permitAll(); // TEST
-                    auth.requestMatchers("/api/v1/students").hasAnyRole("ADMIN","USER");
+                    auth.requestMatchers("/api/v1/students", "/api/v1/students/*").hasAnyRole("ADMIN","USER");
                     auth.requestMatchers("/api/v1/grades").hasAnyRole("ADMIN","USER");
                     auth.requestMatchers("/api/v1/subjects").hasAnyRole("ADMIN","USER");
                     auth.requestMatchers("/api/v1/teachers").hasAnyRole("ADMIN","USER");

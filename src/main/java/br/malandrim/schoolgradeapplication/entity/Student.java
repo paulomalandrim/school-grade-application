@@ -2,6 +2,7 @@ package br.malandrim.schoolgradeapplication.entity;
 
 
 import jakarta.persistence.*;
+import org.springframework.hateoas.RepresentationModel;
 
 
 import java.time.LocalDate;
